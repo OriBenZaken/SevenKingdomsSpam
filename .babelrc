@@ -1,0 +1,20 @@
+// config file
+{
+    // preset is a collection of code-transforms plugins.
+    // Those are pieces of code that actually apply the actual transformations to our code. 
+    "presets": [[
+        "env", {
+            "targets": {
+                // babel will automatically figure out which ES6 features
+                // it actually needs to convert in order to work on the last 5 versions
+                // of all the browsers
+                "browsers": [
+                    "last 5 versions",
+                    "ie >= 8"
+                ]
+            }
+        }
+    ]]
+    // the "env" is the babel-preset-env we installed.
+
+}
