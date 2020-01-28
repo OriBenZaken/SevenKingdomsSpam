@@ -32,8 +32,6 @@ export const renderAdOnMap = ad => {
 
     const adRec = adContainerElement.getBoundingClientRect();
     const mapRec = elements.mapContainer.getBoundingClientRect();
-
-    console.log(adRec, mapRec);
     
     const x_percent = (ad.coordinates.x / MAX_X_COORDINATE) * 100 * ((mapRec.width - adRec.width) / mapRec.width);
     const y_percent = (ad.coordinates.y / MAX_Y_COORDINATE) * 100 * ((mapRec.height - adRec.height) / mapRec.height);

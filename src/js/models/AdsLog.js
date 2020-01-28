@@ -34,7 +34,6 @@ export default class AdsLog {
         const date = new Date(unixTimestamp * 1000);
         this.timeFilters[type] = date;
 
-        console.log(date);
         return date;
     }
 
@@ -58,11 +57,11 @@ export default class AdsLog {
      */
     filterAd(ad) {
         if (this.timeFilters.start) {
-            if (this.timeFilters.start.getTime() < 0 || ad.date < this.timeFilters.start) return false;
+            if (!this.isValidDate(this.timeFilters.start) || ad.date < this.timeFilters.start) return false;
         }
 
         if (this.timeFilters.end) {
-            if (this.timeFilters.end.getTime() < 0 || ad.date > this.timeFilters.end)
+            if (!this.isValidDate(this.timeFilters.end) || ad.date > this.timeFilters.end)
             return false;
         }
         return true;
@@ -70,5 +69,9 @@ export default class AdsLog {
 
     clearTimeFilter(type) {
         this.timeFilters[type] = null;
+    }
+
+    isValidDate(date) {
+        return date.getTime() > 0;
     }
 }

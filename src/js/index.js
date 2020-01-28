@@ -41,10 +41,8 @@ adDispatcher.registerToAdEvents(adEvent => {
 elements.filters.addEventListener('input', e => {
     if (e.target.matches(`.${elementStrings.startTimeFilter}`)) {
         const date = state.log.setTimeFilter('start', e.target.value);
-        console.log(e.target.value);
     } else if (e.target.matches(`.${elementStrings.endTimeFilter}`)) {
         state.log.setTimeFilter('end', e.target.value);
-        console.log(e.target.value);
     }
 
     const filteredLog = state.log.getFilteredLog();
