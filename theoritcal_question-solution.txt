@@ -9,6 +9,6 @@ start is actually an upper bound and end is an lower bound.
 
 
 Since the array is time-sorted, we can perform a binary search to find the index of "start":
-find the log that arrived in/after start time, and the log before (if exists) arrived before start time.
+find the log that arrived in/after start time and the log it before (if exists) arrived before start time.
 We can also use binary search to find the index of "end" in similar way.
 Time complexity: O(log(logs_amount))
