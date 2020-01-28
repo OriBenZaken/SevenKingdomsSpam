@@ -1,0 +1,14 @@
+Solution:
+
+Lets assume that the logs are saved in Array.
+We know that the logs are sorted in a chronological order.
+for "start" - the first log that arrived in start time or after it.
+for "end" - the last log that arrived before or in end time.
+start is actually an upper bound and end is an lower bound.
+
+
+
+Since the array is time-sorted, we can perform a binary search to find the index of "start":
+find the log that arrived in/after start time, and the log before (if exists) arrived before start time.
+We can also use binary search to find the index of "end" in similar way.
+Time complexity: O(log(logs_amount))
