@@ -12,6 +12,44 @@ const state = {
 }
 
 /**
+ * WELCOME MESSAGE CONTROLLER
+ */
+
+/**
+ * Show welcome message on app startup
+ */
+const showWelcomeMessage = () => {
+    const welcomeOverlay = document.getElementById('welcomeOverlay');
+    const welcomeCloseBtn = document.getElementById('welcomeCloseBtn');
+    
+    if (welcomeOverlay && welcomeCloseBtn) {
+        // Show welcome message
+        welcomeOverlay.style.display = 'flex';
+        
+        // Add click handler to close button
+        welcomeCloseBtn.addEventListener('click', () => {
+            welcomeOverlay.classList.add('hidden');
+            setTimeout(() => {
+                welcomeOverlay.style.display = 'none';
+            }, 300);
+        });
+        
+        // Auto-hide after 5 seconds if user doesn't interact
+        setTimeout(() => {
+            if (welcomeOverlay.style.display !== 'none') {
+                welcomeOverlay.classList.add('hidden');
+                setTimeout(() => {
+                    welcomeOverlay.style.display = 'none';
+                }, 300);
+            }
+        }, 5000);
+    }
+};
+
+// Show welcome message when page loads
+document.addEventListener('DOMContentLoaded', showWelcomeMessage);
+
+/**
  * ADS CONTROLLER
  */
 
